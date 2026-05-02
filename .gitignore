@@ -1,0 +1,17 @@
+# API Keys and sensitive data
+API_key.py
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local history / sessions
+history_*.json
+
+# macOS system files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
