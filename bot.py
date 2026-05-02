@@ -7,8 +7,18 @@ from google import genai
 from google.genai import types
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
-from API_key import api_key, telegram_api_key
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve API keys from environment
+api_key = os.getenv("GEMINI_API_KEY")
+telegram_api_key = os.getenv("TELEGRAM_BOT_TOKEN")
+
+if not api_key or not telegram_api_key:
+    print("ERROR: API keys not found in .env file!")
+    exit(1)
 
 # Suppress noisy terminal output from HTTP libraries
 logging.basicConfig(
@@ -18,7 +28,7 @@ logging.basicConfig(
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 # Initialize the Gemini Client
-client = genai.Client(api_key)
+client = genai.Client(api_key=api_key)
 
 # Load the AI Persona
 try:

@@ -1,5 +1,5 @@
 # API Keys and sensitive data
-API_key.py
+.env
 
 # Python compiled files
 __pycache__/
